@@ -1,9 +1,9 @@
 CREATE TABLE [Players] (
 	id int NOT NULL,
-	First_Name varchar NOT NULL,
-	Last_Name varchar NOT NULL,
+	First_Name varchar(255) NOT NULL,
+	Last_Name varchar(255) NOT NULL,
 	Birth_Day date NOT NULL,
-	Position bigint NOT NULL,
+	Position int NOT NULL,
   CONSTRAINT [PK_PLAYERS] PRIMARY KEY CLUSTERED
   (
   [id] ASC
@@ -13,7 +13,7 @@ CREATE TABLE [Players] (
 GO
 CREATE TABLE [Positions] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
   CONSTRAINT [PK_POSITIONS] PRIMARY KEY CLUSTERED
   (
   [id] ASC
@@ -23,8 +23,8 @@ CREATE TABLE [Positions] (
 GO
 CREATE TABLE [Teams] (
 	id int NOT NULL,
-	name varchar NOT NULL,
-	city varchar NOT NULL,
+	name varchar(255) NOT NULL,
+	city varchar(255) NOT NULL,
   CONSTRAINT [PK_TEAMS] PRIMARY KEY CLUSTERED
   (
   [id] ASC
@@ -34,7 +34,7 @@ CREATE TABLE [Teams] (
 GO
 CREATE TABLE [League] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
 	start_date datetime NOT NULL,
 	end_date datetime NOT NULL,
   CONSTRAINT [PK_LEAGUE] PRIMARY KEY CLUSTERED
