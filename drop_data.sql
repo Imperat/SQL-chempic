@@ -1,0 +1,10 @@
+delete from [Players in Teams];
+delete from [Matches];
+delete from [Teams in leagues];
+delete from Goal;
+delete from Teams;
+delete from Players;
+delete from Cityes;
+delete from Stadions;
+delete from League;
+delete from Positions;
