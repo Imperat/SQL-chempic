@@ -352,8 +352,6 @@ insert into Matches values(12,6,4,1,1,15,'2007-6-1',86);
 insert into Matches values(24,4,1,1,2,8,'2007-3-12',87);
 insert into Matches values(15,22,4,3,2,14,'2006-1-4',88);
 
-insert into Goal values (1, 25, 36, 0, '00:30:20');
-insert into Goal values (2, 33, 40, 0, '00:32:38');
 insert into Goal values (3, 50, 1, 0, '00:05:25');
 insert into Goal values (4, 39, 19, 1, '00:04:50');
 insert into Goal values (5, 52, 9, 1, '00:23:38');
@@ -361,8 +359,4 @@ insert into Goal values (6, 18, 11, 0, '00:30:10');
 insert into Goal values (7, 42, 9, 1, '00:00:59');
 insert into Goal values (8, 21, 37, 0, '00:00:45');
 insert into Goal values (9, 2, 26, 0, '00:00:57');
-insert into Goal values (10, 43, 25, 0, '00:50:33');
-insert into Goal values (11, 41, 21, 0, '00:40:36');
-insert into Goal values (12, 33, 10, 1, '00:30:27');
-insert into Goal values (13, 54, 18, 0, '00:20:40');
-insert into Goal values (14, 5, 11, 1, '00:00:23');
+
