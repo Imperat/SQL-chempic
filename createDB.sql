@@ -68,6 +68,12 @@ CREATE TABLE [Matches] (
 	stadion int NOT NULL,
 	date datetime NOT NULL
 )
+/* Patch1 */
+ALTER TABLE Matches
+  ADD ID int NOT NULL;
+ALTER TABLE Matches
+ADD CONSTRAINT PK_T_ID PRIMARY KEY CLUSTERED (ID);
+
 GO
 CREATE TABLE [Stadions] (
 	id int NOT NULL,
