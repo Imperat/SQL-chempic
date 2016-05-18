@@ -14,12 +14,7 @@ select start_date, end_date, First_Name, Last_Name, Teams.name from [Players in 
 join Teams on Teams.id = team_id where start_date < '1995.11.05' and '1995.11.05' < end_date;
 /* Лучшие бомбардиры */
 select author, count( * ) as goals from goal group by author order by goals desc;
-/* Турнирная таблица чемпионата */
-/* -- Команда -- В - Н - П - З - Б - О */
-
-/* Сколько матчей всего выиграно каждой командой */
-
-/*Список матчей Спартака в которых он выиграл в удобночитаемом формате */
+/*Список матчей Спартака в которых он выиграл */
 select Teams.name, Teams2.name, home_goals as G1, away_goals as G2 from Matches inner join Teams on home = Teams.id 
 	inner join Teams as Teams2 on away = Teams2.id where Teams.name = 'Spartak' and home_goals > away_goals
 													 or Teams2.name = 'Spartak' and away_goals > home_goals;
