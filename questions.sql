@@ -26,3 +26,5 @@ select *, case when home_goals = away_goals then 'N'
 	       when home_goals > away_goals then 'P1'
 	       when home_goals < away_goals then 'P2'
 	  end as result from Matches;
+/*CAST */
+select *, 'diff: ' + CAST((home_goals - away_goals) as CHAR(15)) from Matches;
