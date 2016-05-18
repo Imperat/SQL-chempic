@@ -21,3 +21,8 @@ select Teams.name, Teams2.name, home_goals as G1, away_goals as G2 from Matches 
 /*Список команд по количеству домашних побед */
 select Teams.name, COUNT(*) as winners from Matches inner join Teams on home = Teams.id 
 	inner join Teams as Teams2 on away = Teams2.id where home_goals > away_goals group by Teams.name order by winners desc;
+/* Вычислим результат матча */
+select *, case when home_goals = away_goals then 'N'
+	       when home_goals > away_goals then 'P1'
+	       when home_goals < away_goals then 'P2'
+	  end as result from Matches;
