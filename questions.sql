@@ -28,3 +28,5 @@ select *, case when home_goals = away_goals then 'N'
 	  end as result from Matches;
 /*CAST */
 select *, 'diff: ' + CAST((home_goals - away_goals) as CHAR(15)) from Matches;
+/* Все команды из городов Саратовской области */
+select * from Teams inner join Cityes on Teams.city = Cityes.id where Cityes.name in ('Saratov', 'Balacovo', 'Ershov', 'Rtichevo');
