@@ -18,3 +18,11 @@ select author, count( * ) as goals from goal group by author order by goals desc
 /* -- Команда -- В - Н - П - З - Б - О */
 
 /* Сколько матчей всего выиграно каждой командой */
+
+/*Список матчей Спартака в которых он выиграл в удобночитаемом формате */
+select Teams.name, Teams2.name, home_goals as G1, away_goals as G2 from Matches inner join Teams on home = Teams.id 
+	inner join Teams as Teams2 on away = Teams2.id where Teams.name = 'Spartak' and home_goals > away_goals
+													 or Teams2.name = 'Spartak' and away_goals > home_goals;
+/*Список команд по количеству домашних побед */
+select Teams.name, COUNT(*) as winners from Matches inner join Teams on home = Teams.id 
+	inner join Teams as Teams2 on away = Teams2.id where home_goals > away_goals group by Teams.name order by winners desc;
