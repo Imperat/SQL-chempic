@@ -47,3 +47,36 @@ AS
    PRINT 'Error. Cann"t change goal to non-active Match :( '
    ROLLBACK TRANSACTION
   END
+  
+/* When we delete Match, we need delete all goals references to it */
+/*insert into Goal values (1,12,1,0,'00:32:32');*/
+create trigger dt_del on Matches
+
+instead of delete
+
+as
+
+begin
+--удалить из таблицы Goals
+        delete from Goal
+        where id in (select match from deleted)
+        if(@@error>0)
+        begin
+                rollback transaction
+                raiserror('Ошибка удаления из таблицы Goal',16,3)
+                return
+        end
+--удалить из таблицы Matches
+
+        delete from Matches
+
+        where id in (select id from deleted)
+
+        if(@@error>0)
+        begin
+                rollback transaction
+                raiserror('Ошибка удаления из таблицы Matches',16,3)
+                return
+        end
+return
+end
