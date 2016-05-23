@@ -14,7 +14,7 @@ CREATE TABLE [Players] (
 GO
 CREATE TABLE [Positions] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(2) NOT NULL,
   CONSTRAINT [PK_POSITIONS] PRIMARY KEY CLUSTERED
   (
   [id] ASC
