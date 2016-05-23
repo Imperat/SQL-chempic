@@ -100,7 +100,7 @@ CREATE TABLE [Goal] (
 	id int NOT NULL,
 	author int NOT NULL,
 	match int NOT NULL,
-	is_penalty binary NOT NULL DEFAULT '0',
+	is_penalty binary NOT NULL DEFAULT 0,
 	time time NOT NULL DEFAULT '0',
   CONSTRAINT [PK_GOAL] PRIMARY KEY CLUSTERED
   (
