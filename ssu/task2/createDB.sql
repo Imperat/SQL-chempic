@@ -1,7 +1,7 @@
 CREATE TABLE [Players] (
 	id int NOT NULL,
-	First_Name varchar NOT NULL,
-	Last_Name varchar NOT NULL,
+	First_Name varchar(255) NOT NULL,
+	Last_Name varchar(255) NOT NULL,
 	Birth_Day date NOT NULL,
 	Position int NOT NULL,
 	salary money NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE [Positions] (
 GO
 CREATE TABLE [Teams] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
 	city int NOT NULL,
 	making date NOT NULL,
 	budget money NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE [Teams] (
 GO
 CREATE TABLE [League] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
 	start_date datetime NOT NULL,
 	end_date datetime NOT NULL,
   CONSTRAINT [PK_LEAGUE] PRIMARY KEY CLUSTERED
@@ -77,7 +77,7 @@ ADD CONSTRAINT PK_T_ID PRIMARY KEY CLUSTERED (ID);
 GO
 CREATE TABLE [Stadions] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
 	city int NOT NULL,
   CONSTRAINT [PK_STADIONS] PRIMARY KEY CLUSTERED
   (
@@ -88,7 +88,7 @@ CREATE TABLE [Stadions] (
 GO
 CREATE TABLE [Cityes] (
 	id int NOT NULL,
-	name varchar NOT NULL,
+	name varchar(255) NOT NULL,
   CONSTRAINT [PK_CITYES] PRIMARY KEY CLUSTERED
   (
   [id] ASC
