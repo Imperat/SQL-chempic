@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table class="simple-little-table" cellspacing='0'>
+	<tr>
+		<th>ID </th>
+		<th>Чемпионат</th>
+		<th> Хозяева</th>
+		<th> Счёт </th>
+		<th> Гости </th>
+		<th> Стадион </th>
+		<th> Дата </th>
+	</tr><!-- Table Header -->
+	{% for elem in elements.matches %}
+		
+ 
+	<tr>
+		<td>{{elem.id}}</td>
+		<td>{{elem.league}}</td>
+		<td>{{elem.home}}</td>
+		<td>{{elem.home_goals}}:{{elem.away_goals}}</td>
+		<td>{{elem.away}}</td>
+		<td>{{elem.stadion}}</td>
+		<td>{{elem.date}}</td>
+	</tr><!-- Table Row -->
+
+	{% endfor %}
+	</table>
+{% endblock %}

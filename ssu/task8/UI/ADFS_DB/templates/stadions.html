@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table class="simple-little-table" cellspacing='0'>
+	<tr>
+		<th>ID </th>
+		<th>Название</th>
+		<th>Город</th>
+	</tr><!-- Table Header -->
+	{% for elem in elements.stadions %}
+		
+ 
+	<tr>
+		<td>{{elem.id}}</td>
+		<td>{{elem.name}}</td>
+		<td>{{elem.city}}</td>
+	</tr><!-- Table Row -->
+
+</table>
+	{% endfor %}
+{% endblock %}
