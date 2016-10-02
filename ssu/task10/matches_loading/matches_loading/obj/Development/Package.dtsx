@@ -1,0 +1,1918 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/2/2016 5:50:11 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="TOSHIBA"
+  DTS:CreatorName="Toshiba\User"
+  DTS:DTSID="{7D11F59D-F0E0-48B2-9B34-16F4A3D2D739}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{06172E4F-BADA-4640-BF17-BB834C5B468B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Получение образца данных с матчей"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{081FE0C3-A30D-4581-A2A0-FE2D177CDA35}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="1033"
+      DTS:ObjectName="Получение образца данных с матчей"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+              description="Назначение &quot;OLE DB&quot;"
+              name="Назначение &quot;OLE DB&quot;"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[dbo].[FactGoalsMatches]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  errorOrTruncationOperation="Вставить"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;OLE DB&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[KeyMatch]"
+                      cachedDataType="i4"
+                      cachedName="KeyMatch"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[KeyMatch]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyMatch]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[KeyGoalInMatch]"
+                      cachedDataType="i4"
+                      cachedName="KeyGoalInMatch"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[KeyGoalInMatch]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyGoalInMatch]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[authorGoal]"
+                      cachedDataType="i4"
+                      cachedName="authorGoal"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[authorGoal]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[authorGoal]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[LeagueKey]"
+                      cachedDataType="i4"
+                      cachedName="LeagueKey"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LeagueKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[LeagueKey]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[StadionKey]"
+                      cachedDataType="i4"
+                      cachedName="StadionKey"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[StadionKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[StadionKey]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[HomeTeamKey]"
+                      cachedDataType="i4"
+                      cachedName="HomeTeamKey"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[HomeTeamKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[HomeTeamKey]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[AwayTeamKey]"
+                      cachedDataType="i4"
+                      cachedName="AwayTeamKey"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AwayTeamKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AwayTeamKey]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DateKey]"
+                      cachedDataType="i8"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DateKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[isPenalty]"
+                      cachedDataType="bool"
+                      cachedName="isPenalty"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[isPenalty]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[isPenalty]" />
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[timeGoal]"
+                      cachedDataType="date"
+                      cachedName="timeGoal"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[timeGoal]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[timeGoal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[KeyMatch]"
+                      dataType="i4"
+                      name="KeyMatch" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[KeyGoalInMatch]"
+                      dataType="i4"
+                      name="KeyGoalInMatch" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[authorGoal]"
+                      dataType="i4"
+                      name="authorGoal" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LeagueKey]"
+                      dataType="i4"
+                      name="LeagueKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[StadionKey]"
+                      dataType="i4"
+                      name="StadionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[HomeTeamKey]"
+                      dataType="i4"
+                      name="HomeTeamKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AwayTeamKey]"
+                      dataType="i4"
+                      name="AwayTeamKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DateKey]"
+                      dataType="i8"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[isPenalty]"
+                      dataType="bool"
+                      name="isPenalty" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[timeGoal]"
+                      dataType="dbTime2"
+                      name="timeGoal"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Источник &quot;Неструктурированный файл&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
+              description="Источник &quot;Неструктурированный файл&quot;"
+              localeId="1049"
+              name="Получение образцов данных с матчей"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, считается ли, что столбцы нулевой длины имеют значение NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя файла выходного столбца, содержащего имя файла. Если не указано имя, выходной столбец, содержащий имя файла, не будет сформирован."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Connections[FlatFileConnection]"
+                  connectionManagerID="{67D0B9C4-05F5-47BB-98E0-3D483F36E29F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Диспетчер соединений с неструктурированными файлами]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;]"
+                  name="Выход источника &quot;Неструктурированный файл&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyMatch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[KeyMatch]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyMatch]"
+                      name="KeyMatch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyGoalInMatch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[KeyGoalInMatch]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[KeyGoalInMatch]"
+                      name="KeyGoalInMatch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[authorGoal]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[authorGoal]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[authorGoal]"
+                      name="authorGoal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[LeagueKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[LeagueKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[LeagueKey]"
+                      name="LeagueKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[StadionKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[StadionKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[StadionKey]"
+                      name="StadionKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[HomeTeamKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[HomeTeamKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[HomeTeamKey]"
+                      name="HomeTeamKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AwayTeamKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AwayTeamKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AwayTeamKey]"
+                      name="AwayTeamKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DateKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DateKey]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[isPenalty]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[isPenalty]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[isPenalty]"
+                      name="isPenalty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[timeGoal]"
+                      dataType="date"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[timeGoal]"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[timeGoal]"
+                      name="timeGoal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Указывает, являются ли данные двоичными."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[KeyMatch]"
+                      dataType="i4"
+                      name="KeyMatch" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[KeyGoalInMatch]"
+                      dataType="i4"
+                      name="KeyGoalInMatch" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[authorGoal]"
+                      dataType="i4"
+                      name="authorGoal" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[LeagueKey]"
+                      dataType="i4"
+                      name="LeagueKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[StadionKey]"
+                      dataType="i4"
+                      name="StadionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[HomeTeamKey]"
+                      dataType="i4"
+                      name="HomeTeamKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AwayTeamKey]"
+                      dataType="i4"
+                      name="AwayTeamKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DateKey]"
+                      dataType="i8"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[isPenalty]"
+                      dataType="bool"
+                      name="isPenalty" />
+                    <externalMetadataColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[timeGoal]"
+                      dataType="date"
+                      name="timeGoal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;Неструктурированный файл&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                      codePage="1251"
+                      dataType="text"
+                      description="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                      name="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос автора гола"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimPlayers]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimPlayers]) [refTable]
+where [refTable].[KeyPlayer] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyPlayer" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PlayerAlternateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastName" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BirthDate" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PositionKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Salary" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TeamKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="flag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[authorGoal]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[authorGoal]"
+                      cachedDataType="i4"
+                      cachedName="authorGoal"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[authorGoal]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyPlayer</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос даты"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос даты"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimDate]) [refTable]
+where [refTable].[KeyDate] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyDate" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Week" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Day" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[DateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[DateKey]"
+                      cachedDataType="i8"
+                      cachedName="DateKey"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyDate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyDate]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Копировать столбец"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyDate]"
+                      name="KeyDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">KeyDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос ключа второй команды"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimTeams]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimTeams]) [refTable]
+where [refTable].[KeyTeam] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyTeam" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TeamAlternateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NameTeam" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Location" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="budget" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="flag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[AwayTeamKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[AwayTeamKey]"
+                      cachedDataType="i4"
+                      cachedName="AwayTeamKey"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AwayTeamKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyTeam</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyTeam]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Копировать столбец"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyTeam]"
+                      name="KeyTeam"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">KeyTeam</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос ключа первой команды"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimTeams]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimTeams]) [refTable]
+where [refTable].[KeyTeam] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyTeam" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TeamAlternateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NameTeam" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Location" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="budget" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="flag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[HomeTeamKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[HomeTeamKey]"
+                      cachedDataType="i4"
+                      cachedName="HomeTeamKey"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[HomeTeamKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyTeam</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyTeam]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Копировать столбец"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyTeam]"
+                      name="KeyTeam"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">KeyTeam</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос лиги"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimLeagues]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimLeagues]) [refTable]
+where [refTable].[KeyLeague] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyLeague" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NameLeague" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[LeagueKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[LeagueKey]"
+                      cachedDataType="i4"
+                      cachedName="LeagueKey"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[LeagueKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyLeague</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyLeague]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Копировать столбец"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyLeague]"
+                      name="KeyLeague"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">KeyLeague</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Уточняющий запрос;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;6"
+              description="Присоединяет дополнительные столбцы к потоку данных путем поиска значений в таблице. Пример: соединение со столбцом &quot;employee id&quot; таблицы employees позволяет получить значения &quot;hire date&quot; и &quot;employee name&quot;. Рекомендуется воспользоваться этим преобразованием, если таблица подстановки не помещается в памяти."
+              name="Уточняющий запрос стадиона"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая формирует таблицу уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimStadions]</property>
+                <property
+                  dataType="System.String"
+                  description="Задает инструкцию SQL, которая использует параметры для формирования таблицы уточняющих запросов."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimStadions]) [refTable]
+where [refTable].[KeyStadion] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип соединения, используемого для доступа к эталонному набору данных."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает тип кэша таблицы уточняющих запросов."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, как преобразование &quot;Уточняющий запрос&quot; обрабатывает строки без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает долю кэша (в процентах), выделенную для строк без совпадающих элементов в эталонном наборе данных."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Максимальный объем памяти для кэша ссылок на 32-разрядной платформе."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Максимальный объем памяти для кэша ссылок на 64-разрядной платформе."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает, следует ли ссылаться на метаданные в формате XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="KeyStadion" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NameStadion" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GeographyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Задает список идентификаторов журнала обращений и преобразований, сопоставляемый с параметрами, которые использует инструкция SQL в свойстве SQLCommand. Элементы списка разделяются точками с запятой."
+                  name="ParameterMap">#{Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника "Неструктурированный файл"].Columns[StadionKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Определяет, должны ли повторяющиеся ключи в ссылочных данных обрабатываться как ошибки при использовании режима полного кэширования."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Connections[OleDbConnection]"
+                  connectionManagerID="{3E600161-9E29-497A-8A58-9700AC653701}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.FootballMatches_DW]"
+                  description="Диспетчер соединений, используемый для доступа к данным уточняющих запросов."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+                  name="Вход преобразования &quot;Уточняющий запрос&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;].Columns[StadionKey]"
+                      cachedDataType="i4"
+                      cachedName="StadionKey"
+                      lineageId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[StadionKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">KeyStadion</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+                  errorOrTruncationOperation="Уточняющий запрос"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyStadion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Копировать столбец"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;].Columns[KeyStadion]"
+                      name="KeyStadion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">KeyStadion</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Выход несовпадающих строк уточняющего запроса]"
+                  description="Выход преобразования &quot;Уточняющий запрос&quot;, которое обрабатывает строки без совпадающих элементов в эталонном наборе данных. Используйте этот выход, если свойство NoMatchBehavior имеет значение &quot;Отправить строки без совпадающих элементов в выход несовпадающих строк&quot;."
+                  exclusionGroup="1"
+                  name="Выход несовпадающих строк уточняющего запроса"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок преобразования &quot;Уточняющий запрос&quot;"
+                  synchronousInputId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Вывод ошибок преобразования &quot;Уточняющий запрос&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход источника &quot;Неструктурированный файл&quot;"
+              startId="Package\Получение образца данных с матчей\Получение образцов данных с матчей.Outputs[Выход источника &quot;Неструктурированный файл&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;3]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос автора гола.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;4]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос лиги.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;5]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос стадиона.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;1]"
+              endId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Inputs[Вход преобразования &quot;Уточняющий запрос&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+            <path
+              refId="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;2]"
+              endId="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              name="Выход совпадений преобразования &quot;Уточняющий запрос&quot;"
+              startId="Package\Получение образца данных с матчей\Уточняющий запрос даты.Outputs[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<Objects
+  Version="sql11">
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Получение образца данных с матчей"
+          TopLeft="178,28" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Получение образца данных с матчей">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Получение образцов данных с матчей"
+          TopLeft="182,6" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос автора гола"
+          TopLeft="184,82" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+          TopLeft="331.5,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос лиги"
+          TopLeft="183,148" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;3]"
+          TopLeft="332,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,2.25,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос стадиона"
+          TopLeft="184,218" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;4]"
+          TopLeft="332,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,4.25,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды"
+          TopLeft="202,308" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;5]"
+          TopLeft="332.5,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,48"
+              Start="0,0"
+              End="18,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="14,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,24"
+                    Point2="18,24"
+                    Point3="18,28" />
+                  <mssgle:LineSegment
+                    End="18,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,14.25,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды"
+          TopLeft="577,305" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;]"
+          TopLeft="499,327.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78,0"
+              Start="0,0"
+              End="70.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,-24.75,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Уточняющий запрос даты"
+          TopLeft="707,199" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;1]"
+          TopLeft="725.5,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130,-64"
+              Start="0,0"
+              End="130,-56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-28"
+                    Point2="0,-32"
+                    Point3="4,-32" />
+                  <mssgle:LineSegment
+                    End="126,-32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126,-32"
+                    Point2="130,-32"
+                    Point3="130,-36" />
+                  <mssgle:LineSegment
+                    End="130,-56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,-34.25,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;"
+          TopLeft="700,93" />
+        <EdgeLayout
+          Id="Package\Получение образца данных с матчей.Paths[Выход совпадений преобразования &quot;Уточняющий запрос&quot;2]"
+          TopLeft="852,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-64"
+              Start="0,0"
+              End="0,-56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.54486328125,-34.25,269.0897265625,12"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос автора гола">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimPlayers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос лиги">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimLeagues]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос стадиона">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimStadions]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос ключа первой команды">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimTeams]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос ключа второй команды">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimTeams]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Уточняющий запрос даты">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Получение образца данных с матчей\Назначение &quot;OLE DB&quot;">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
