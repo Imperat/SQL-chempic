@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "КубФутбол", "КубФутбол\КубФутбол.dwproj", "{944DD7FA-9E10-499A-AA91-CF3656B71218}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{944DD7FA-9E10-499A-AA91-CF3656B71218}.Development|Default.ActiveCfg = Development
+		{944DD7FA-9E10-499A-AA91-CF3656B71218}.Development|Default.Build.0 = Development
+		{944DD7FA-9E10-499A-AA91-CF3656B71218}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
