@@ -5,7 +5,7 @@ CREATE TABLE [Players] (
 	Birth_Day date NOT NULL,
 	Position int NOT NULL,
 	salary money NOT NULL,
-  CONSTRAINT [PK_PLAYERS] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_PLAYERS] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -15,7 +15,7 @@ GO
 CREATE TABLE [Positions] (
 	id int NOT NULL,
 	name varchar(2) NOT NULL,
-  CONSTRAINT [PK_POSITIONS] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_POSITIONS] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -28,7 +28,7 @@ CREATE TABLE [Teams] (
 	city int NOT NULL,
 	making date NOT NULL,
 	budget money NOT NULL,
-  CONSTRAINT [PK_TEAMS] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_TEAMS] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -38,9 +38,9 @@ GO
 CREATE TABLE [League] (
 	id int NOT NULL,
 	name varchar(255) NOT NULL,
-	start_date datetime NOT NULL,
-	end_date datetime NOT NULL,
-  CONSTRAINT [PK_LEAGUE] PRIMARY KEY CLUSTERED
+	start_date date NOT NULL,
+	end_date date NOT NULL,
+  CONSTRAINT [PK_LEAGUE] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -50,8 +50,8 @@ GO
 CREATE TABLE [Players in Teams] (
 	player_id int NOT NULL,
 	team_id int NOT NULL,
-	start_date datetime NOT NULL,
-	end_date datetime NOT NULL
+	start_date date NOT NULL,
+	end_date date NOT NULL
 )
 GO
 CREATE TABLE [Teams in leagues] (
@@ -72,14 +72,14 @@ CREATE TABLE [Matches] (
 ALTER TABLE Matches
   ADD ID int NOT NULL;
 ALTER TABLE Matches
-ADD CONSTRAINT PK_T_ID PRIMARY KEY CLUSTERED (ID);
+ADD CONSTRAINT PK_T_ID PRIMARY KEY  (ID);
 
 GO
 CREATE TABLE [Stadions] (
 	id int NOT NULL,
 	name varchar(255) NOT NULL,
 	city int NOT NULL,
-  CONSTRAINT [PK_STADIONS] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_STADIONS] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -89,7 +89,7 @@ GO
 CREATE TABLE [Cityes] (
 	id int NOT NULL,
 	name varchar(255) NOT NULL,
-  CONSTRAINT [PK_CITYES] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_CITYES] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -102,7 +102,7 @@ CREATE TABLE [Goal] (
 	match int NOT NULL,
 	is_penalty binary NOT NULL DEFAULT 0,
 	time time NOT NULL DEFAULT '0',
-  CONSTRAINT [PK_GOAL] PRIMARY KEY CLUSTERED
+  CONSTRAINT [PK_GOAL] PRIMARY KEY 
   (
   [id] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
@@ -113,16 +113,16 @@ ALTER TABLE [Players] WITH CHECK ADD CONSTRAINT [Players_fk0] FOREIGN KEY ([Posi
 ON UPDATE CASCADE
 GO
 ALTER TABLE [Players] CHECK CONSTRAINT [Players_fk0]
+
+
 GO
-
-
 ALTER TABLE [Teams] WITH CHECK ADD CONSTRAINT [Teams_fk0] FOREIGN KEY ([city]) REFERENCES [Cityes]([id])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [Teams] CHECK CONSTRAINT [Teams_fk0]
+
+
 GO
-
-
 ALTER TABLE [Players in Teams] WITH CHECK ADD CONSTRAINT [Players in Teams_fk0] FOREIGN KEY ([player_id]) REFERENCES [Players]([id])
 ON UPDATE CASCADE
 GO
@@ -132,9 +132,10 @@ ALTER TABLE [Players in Teams] WITH CHECK ADD CONSTRAINT [Players in Teams_fk1] 
 ON UPDATE CASCADE
 GO
 ALTER TABLE [Players in Teams] CHECK CONSTRAINT [Players in Teams_fk1]
-GO
 
-ALTER TABLE [Teams in leagues] WITH CHECK ADD CONSTRAINT [Teams in leagues_fk0] FOREIGN KEY ([team_id]) REFERENCES [Players]([id])
+
+GO
+ALTER TABLE [Teams in leagues] WITH CHECK ADD CONSTRAINT [Teams in leagues_fk0] FOREIGN KEY ([team_id]) REFERENCES [Teams]([id])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [Teams in leagues] CHECK CONSTRAINT [Teams in leagues_fk0]
@@ -145,13 +146,14 @@ GO
 ALTER TABLE [Teams in leagues] CHECK CONSTRAINT [Teams in leagues_fk1]
 GO
 
+
 ALTER TABLE [Matches] WITH CHECK ADD CONSTRAINT [Matches_fk0] FOREIGN KEY ([home]) REFERENCES [Teams]([id])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [Matches] CHECK CONSTRAINT [Matches_fk0]
 GO
 ALTER TABLE [Matches] WITH CHECK ADD CONSTRAINT [Matches_fk1] FOREIGN KEY ([away]) REFERENCES [Teams]([id])
-ON UPDATE CASCADE
+ON UPDATE NO ACTION
 GO
 ALTER TABLE [Matches] CHECK CONSTRAINT [Matches_fk1]
 GO
@@ -167,7 +169,7 @@ ALTER TABLE [Matches] CHECK CONSTRAINT [Matches_fk3]
 GO
 
 ALTER TABLE [Stadions] WITH CHECK ADD CONSTRAINT [Stadions_fk0] FOREIGN KEY ([city]) REFERENCES [Cityes]([id])
-ON UPDATE CASCADE
+ON UPDATE NO ACTION
 GO
 ALTER TABLE [Stadions] CHECK CONSTRAINT [Stadions_fk0]
 GO

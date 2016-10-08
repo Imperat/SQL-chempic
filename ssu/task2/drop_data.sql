@@ -4,7 +4,7 @@ delete from [Teams in leagues];
 delete from Goal;
 delete from Teams;
 delete from Players;
-delete from Cityes;
 delete from Stadions;
+delete from Cityes;
 delete from League;
 delete from Positions;
