@@ -28,3 +28,7 @@ insert into Goal values (0, 0, 0, 0, '00:05:25');
 insert into Goal values (1, 0, 0, 1, '00:04:50');
 insert into Goal values (2, 0, 0, 1, '00:23:38');
 insert into Goal values (3, 1, 0, 0, '00:30:10');
+insert into Goal values (4, 1, 0, 0, '00:01:00');
+insert into Goal values (5, 2, 1, 0, '00:02:00');
+insert into Goal values (6, 3, 1, 0, '00:02:00');
+
