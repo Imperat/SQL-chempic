@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<head>
+	<meta http-equiv="Content-language" content="ru-RU">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" media="all" href="{% static 'main.css' %}" type="text/css">
+    <title>База данных - футбол</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div id="top_menu">
+        {% include "top_menu.html" %}
+	</div>
+    <div id="left_menu">
+    	{% include "left_menu.html" %}
+    </div>
+    <div id="content">
+       {% block content %}
+       {% endblock %}
+    </div>
+</body>
