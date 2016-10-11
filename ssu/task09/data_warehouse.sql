@@ -1,6 +1,6 @@
 use [master];
 
---создание ХД 
+--СЃРѕР·РґР°РЅРёРµ РҐР” 
 create database [FootballMatches_DW]
 containment = none
 on primary
@@ -18,7 +18,7 @@ go
 alter database [FootballMatches_DW] set recovery simple with no_wait
 go
 
---файловые группы
+--С„Р°Р№Р»РѕРІС‹Рµ РіСЂСѓРїРїС‹
 go
 alter database [FootballMatches_DW] add filegroup [Fast-Growing]
 go 
@@ -44,7 +44,7 @@ alter database [FootballMatches_DW] add file ( name = N'FM_MyDefault',
 filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_MyDefault.ndf',
 size = 204800KB, filegrowth = 10240KB ) to filegroup [MyDefault] 
 
---таблицы измерений
+--С‚Р°Р±Р»РёС†С‹ РёР·РјРµСЂРµРЅРёР№
 use FootballMatches_DW;
 create table dimDate
 (KeyDate BIGINT NOT NULL,
@@ -125,7 +125,7 @@ create table dimPosition
 -- constraint pkdw8 primary key (KeyMatch)
 -- ) on [Freq-Requested]
 
- --секционирование
+ --СЃРµРєС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ
  CREATE PARTITION FUNCTION PartFunFactGoals_Date(BIGINT)
 AS RANGE RIGHT FOR VALUES (20150601,20160301,20161001);
 
@@ -147,7 +147,7 @@ AS PARTITION PartFunArchievalFactGoals_Date TO
 
 GO
 
---таблица фактов
+--С‚Р°Р±Р»РёС†Р° С„Р°РєС‚РѕРІ
 create table FactGoalsMatches
 (KeyMatch int not null,
  KeyGoalInMatch int not null,
@@ -164,7 +164,7 @@ create table FactGoalsMatches
  ON PartSchFactGoals_Date(DateKey); 
 
  
- --таблица для метода скользящего окна
+ --С‚Р°Р±Р»РёС†Р° РґР»СЏ РјРµС‚РѕРґР° СЃРєРѕР»СЊР·СЏС‰РµРіРѕ РѕРєРЅР°
  create table ArchivalFactGoalsMatches
 (KeyMatch int not null,
  KeyGoalInMatch int not null,
@@ -181,14 +181,14 @@ create table FactGoalsMatches
  ON PartSchArchievalFactGoals_Date(DateKey); 
 
 
---тут можно запросить таблицы секционирования
+--С‚СѓС‚ РјРѕР¶РЅРѕ Р·Р°РїСЂРѕСЃРёС‚СЊ С‚Р°Р±Р»РёС†С‹ СЃРµРєС†РёРѕРЅРёСЂРѕРІР°РЅРёСЏ
 SELECT partition_number, rows FROM sys.partitions
  WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'FactGoalsMatches');
 
  SELECT partition_number, rows FROM sys.partitions
  WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'ArchivalFactGoalsMatches');
 
- --метод скользящего окна
+ --РјРµС‚РѕРґ СЃРєРѕР»СЊР·СЏС‰РµРіРѕ РѕРєРЅР°
  GO
 
  CREATE PROCEDURE Pr_SlidingWindow
@@ -235,7 +235,7 @@ Merge RANGE (CAST(@DayForPartArchival AS BIGINT));
 ALTER PARTITION FUNCTION  PartFunArchievalFactGoals_Date()
 merge RANGE (CAST(@DayForPartArchival AS BIGINT));
 
---добавление внешних ключей
+--РґРѕР±Р°РІР»РµРЅРёРµ РІРЅРµС€РЅРёС… РєР»СЋС‡РµР№
 alter table dimLeagues
 add constraint fk1 foreign key(StartDate) references dimDate(KeyDate),
 constraint fk2 foreign key (EndDate) references dimDate(KeyDate);
@@ -261,7 +261,7 @@ constraint fk13 foreign key(AwayTeamKey) references dimTeams(KeyTeam),
 constraint fk14 foreign key(DateKey) references dimDate(KeyDate);
 
 
---заполнение таблицы дат
+--Р·Р°РїРѕР»РЅРµРЅРёРµ С‚Р°Р±Р»РёС†С‹ РґР°С‚
 SET LANGUAGE Russian;
 
 DECLARE @start date = '2015-05-01';
@@ -286,7 +286,7 @@ WHILE @inc<=@end
 
 select * from dimDate;
 
---индексы
+--РёРЅРґРµРєСЃС‹
 create nonclustered index plAltKey
 on dimPlayers([PlayerAlternateKey]);
 
