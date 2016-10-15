@@ -1,5 +1,5 @@
 CREATE TABLE [Players] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	First_Name varchar(255) NOT NULL,
 	Last_Name varchar(255) NOT NULL,
 	Birth_Day date NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE [Players] (
 )
 GO
 CREATE TABLE [Positions] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	name varchar(2) NOT NULL,
   CONSTRAINT [PK_POSITIONS] PRIMARY KEY 
   (
@@ -23,7 +23,7 @@ CREATE TABLE [Positions] (
 )
 GO
 CREATE TABLE [Teams] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	name varchar(255) NOT NULL,
 	city int NOT NULL,
 	making date NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE [Teams] (
 )
 GO
 CREATE TABLE [League] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	name varchar(255) NOT NULL,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
@@ -70,13 +70,13 @@ CREATE TABLE [Matches] (
 )
 /* Patch1 */
 ALTER TABLE Matches
-  ADD ID int NOT NULL;
+  ADD ID int IDENTITY(1,1);
 ALTER TABLE Matches
 ADD CONSTRAINT PK_T_ID PRIMARY KEY  (ID);
 
 GO
 CREATE TABLE [Stadions] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	name varchar(255) NOT NULL,
 	city int NOT NULL,
   CONSTRAINT [PK_STADIONS] PRIMARY KEY 
@@ -87,7 +87,7 @@ CREATE TABLE [Stadions] (
 )
 GO
 CREATE TABLE [Cityes] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	name varchar(255) NOT NULL,
   CONSTRAINT [PK_CITYES] PRIMARY KEY 
   (
@@ -97,7 +97,7 @@ CREATE TABLE [Cityes] (
 )
 GO
 CREATE TABLE [Goal] (
-	id int NOT NULL,
+	id int IDENTITY(1,1),
 	author int NOT NULL,
 	match int NOT NULL,
 	is_penalty binary NOT NULL DEFAULT 0,
@@ -124,7 +124,7 @@ ALTER TABLE [Teams] CHECK CONSTRAINT [Teams_fk0]
 
 GO
 ALTER TABLE [Players in Teams] WITH CHECK ADD CONSTRAINT [Players in Teams_fk0] FOREIGN KEY ([player_id]) REFERENCES [Players]([id])
-ON UPDATE CASCADE
+ON UPDATE NO ACTION
 GO
 ALTER TABLE [Players in Teams] CHECK CONSTRAINT [Players in Teams_fk0]
 GO
