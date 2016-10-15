@@ -6,10 +6,12 @@ def get_connection():
     """
     get connecion for my specific DataBase
     """
-    conn = pymssql.connect(server="imperat.database.windows.net",
-                           user="Michael@imperat.database.windows.net",
-                           password="Liederlich2(", database="ADFS",
-                           tds_version="7.0", port="1433")
+    conn = pymssql.connect(server="127.0.0.1",
+                           user="Marmon",
+                           password="Marmon",
+			   database="FinalIteration",
+                           tds_version="7.0",
+			   port="2079")
     return conn
 
 def get_cityes(conn):
