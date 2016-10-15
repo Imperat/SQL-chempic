@@ -4,7 +4,7 @@ def _get_position(id, conn=None):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Positions where id=%s" % id)
     row = cursor.fetchone()
-    return row
+    return row[1    ]
 
 
 def _get_team(id, conn=None):
@@ -17,7 +17,7 @@ def _get_stadion(id, conn=None):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Stadions where id=%s" % id)
     row = cursor.fetchone()
-    return row
+    return row[1]
 
 def _get_league(id, conn=None):
     cursor = conn.cursor()
@@ -30,4 +30,4 @@ def _get_city(id, conn=None):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Cityes where id=%s" %id)
     row = cursor.fetchone()
-    return row
+    return row[1]
