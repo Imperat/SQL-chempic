@@ -17,9 +17,9 @@
 	<tr>
 		<td>{{elem.id}}</td>
 		<td>{{elem.league}}</td>
-		<td>{{elem.home}}</td>
+		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.home}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.home_goals}}:{{elem.away_goals}}</td>
-		<td>{{elem.away}}</td>
+		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.away}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.stadion}}</td>
 		<td>{{elem.date}}</td>
 	</tr><!-- Table Row -->
