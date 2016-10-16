@@ -1,6 +1,7 @@
 import pymssql
 
 from db_api_utils import _get_city, _get_position, _get_team, _get_league, _get_stadion
+from db_api_utils import get_id_by_name
 
 def get_connection():
     """
@@ -9,9 +10,9 @@ def get_connection():
     conn = pymssql.connect(server="127.0.0.1",
                            user="Marmon",
                            password="Marmon",
-			                     database="FinalIteration",
+                           database="Identity",
                            tds_version="7.0",
-			   port="2079")
+                           port="2079")
     return conn
 
 def get_cityes(conn):
@@ -91,3 +92,65 @@ def get_chempionships(conn):
         leagues.append(new_league)
     return leagues
 
+
+def create_city(conn, request):
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO Cityes VALUES ('%s')" % request.form['name'])
+    conn.commit()
+
+
+def create_player(conn, request):
+    cursor = conn.cursor()
+    position_id = get_id_by_name(request.form['position'], obj='position', conn=conn)
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    birth_day = request.form['birth_day']
+    salary = request.form['salary']
+    data = (first_name, last_name, birth_day, position_id, salary)
+    import pdb; pdb.set_trace()
+    cursor.execute("INSERT INTO Players VALUES ('%s', '%s', '%s', %s, %s)" % data)
+    conn.commit()
+
+
+def create_team(conn, request):
+    city_id = get_id_by_name(request.form['city'], obj='city', conn=conn)
+    cursor = conn.cursor()
+    data = (request.form['name'], city_id, request.form['birth_day'], request.form['budget'])
+    cursor.execute("INSERT INTO Teams VALUES('%s', '%s', '%s', %s)" % data)
+    conn.commit()
+
+
+def create_match(conn, request):
+    import pdb; pdb.set_trace()
+    home_id = get_id_by_name(request.form['home_team'], obj='team', conn=conn)
+    away_id = get_id_by_name(request.form['away_team'], obj='team', conn=conn)
+    home_goals = request.form['home_goals']
+    away_goals = request.form['away_goals']
+    league_id = get_id_by_name(request.form['league'], obj='league', conn=conn)
+    stadion_id = get_id_by_name(request.form['stadion'], obj='stadion', conn=conn)
+    date = request.form['date']
+    is_active = 0
+    cursor = conn.cursor()
+    data = (home_id, away_id, home_goals, away_goals, league_id, stadion_id, date)
+    cursor.execute("INSERT INTO Matches VALUES (%s, %s, %s, %s, %s, %s, '%s')" % data)
+    conn.commit()
+
+
+def create_league(conn, request):
+    import pdb; pdb.set_trace()
+    name = request.form['name']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    cursor = conn.cursor()
+    data = (name, start_date, end_date)
+    cursor.execute("INSERT INTO League VALUES('%s', '%s', '%s')" % data)
+    conn.commit()
+
+
+
+def create_stadion(conn, request):
+    cursor = conn.cursor()
+    city_id = get_id_by_name(request.form['city'], obj='city', conn=conn)
+    name = request.form['name']
+    cursor.execute("INSERT INTO Stadions VALUES('%s', %s)" % (name, city_id))
+    conn.commit()

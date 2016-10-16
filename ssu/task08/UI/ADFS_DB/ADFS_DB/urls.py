@@ -19,12 +19,19 @@ from django.contrib import admin
 from ADFS_DB import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^main/', views.main),
-    url(r'^cityes/', views.cityes),
-    url(r'^teams/', views.teams),
-    url(r'^championships/', views.leagues),
-    url(r'^stadions/', views.stadions),
-    url(r'^players/', views.players),
-    url(r'^matches/', views.matches),
+    url(r'^admin/$', admin.site.urls),
+    url(r'^main/$', views.main),
+    url(r'^cityes/$', views.cityes),
+    url(r'^teams/$', views.teams),
+    url(r'^championships/$', views.leagues),
+    url(r'^stadions/$', views.stadions),
+    url(r'^players/$', views.players),
+    url(r'^matches/$', views.matches),
+    url(r'^cityes/add/$', views.create_city),
+    url(r'^teams/add/$', views.create_team),
+    url(r'^championships/add/$', views.create_league),
+    url(r'^stadions/add/$', views.create_stadion),
+    url(r'^players/add/$', views.create_player),
+    url(r'^matches/add/$', views.create_match),
+    
 ]
