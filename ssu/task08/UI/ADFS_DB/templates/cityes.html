@@ -6,15 +6,17 @@
 
 <table class="simple-little-table" cellspacing='0'>
 	<tr>
-		<th>ID </th>
+		{% if user.username == 'admin' %}<th>ID </th> {% endif %}
 		<th>Город</th>
+		{% if user.username == 'admin' %}<th> </th> {%endif%}
 	</tr><!-- Table Header -->
 	{% for elem in elements.cityes %}
 		
  
 	<tr>
-		<td>{{elem.id}}</td>
+		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.name}}</td>
+		{% if user.username == 'admin' %}<td> </td> {%endif%}
 	</tr><!-- Table Row -->
 
 	{% endfor %}

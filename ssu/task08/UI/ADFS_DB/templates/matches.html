@@ -4,25 +4,27 @@
 <a href="/matches/add"> <b>+ Добавить матч </b></a>
 <table class="simple-little-table" cellspacing='0'>
 	<tr>
-		<th>ID </th>
+		{% if user.username == 'admin' %}<th>ID </th>{%endif%}
 		<th>Чемпионат</th>
 		<th> Хозяева</th>
 		<th> Счёт </th>
 		<th> Гости </th>
 		<th> Стадион </th>
 		<th> Дата </th>
+		{% if user.username == 'admin' %}<th> </th> {%endif%}
 	</tr><!-- Table Header -->
 	{% for elem in elements.matches %}
 		
  
 	<tr>
-		<td>{{elem.id}}</td>
+		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.league}}</td>
 		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.home}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.home_goals}}:{{elem.away_goals}}</td>
 		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.away}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.stadion}}</td>
 		<td>{{elem.date}}</td>
+		{% if user.username == 'admin' %}<td> </td> {%endif%}
 	</tr><!-- Table Row -->
 
 	{% endfor %}

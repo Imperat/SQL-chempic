@@ -34,4 +34,6 @@ urlpatterns = [
     url(r'^players/add/$', views.create_player),
     url(r'^matches/add/$', views.create_match),
     url(r'^error/$', views.error),
+    url(r'^login/$', views.login_view),
+    url(r'^logout/$', views.logout_view)
 ]

@@ -5,17 +5,19 @@
 <a href="/stadions/add"> <b>+ Добавить стадион </b></a>
 <table class="simple-little-table" cellspacing='0'>
 	<tr>
-		<th>ID </th>
+		{% if user.username == 'admin' %}<th>ID </th> {%endif%}
 		<th>Название</th>
 		<th>Город</th>
+		{% if user.username == 'admin' %}<th> </th> {%endif%}
 	</tr><!-- Table Header -->
 	{% for elem in elements.stadions %}
 		
  
 	<tr>
-		<td>{{elem.id}}</td>
+		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.name}}</td>
 		<td>{{elem.city}}</td>
+		{% if user.username == 'admin' %}<td> </td> {%endif%}
 	</tr><!-- Table Row -->
 	{% endfor %}
 </table>
