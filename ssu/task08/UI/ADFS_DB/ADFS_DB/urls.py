@@ -33,5 +33,5 @@ urlpatterns = [
     url(r'^stadions/add/$', views.create_stadion),
     url(r'^players/add/$', views.create_player),
     url(r'^matches/add/$', views.create_match),
-    
+    url(r'^error/$', views.error),
 ]

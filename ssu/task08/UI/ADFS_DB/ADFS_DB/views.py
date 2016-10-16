@@ -78,17 +78,20 @@ def create_city(request):
 
     form = forms.CityForm(request.POST)
     if form.is_valid():
-        requests.post('http://127.0.0.1:5000/cityes', data=dict(request.POST))
-        return HttpResponseRedirect('/cityes/')
-
+        resp = requests.post('http://127.0.0.1:5000/cityes', data=dict(request.POST))
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/cityes/')
+        return HttpResponseRedirect('/error/')
 
 def create_team(request):
     if request.method == 'GET':
         return render(request, 'form.html', {'form': forms.TeamForm()})
     else:
         form = forms.CityForm(request.POST)
-        requests.post('http://127.0.0.1:5000/teams', data=dict(request.POST))
-        return HttpResponseRedirect('/teams/')
+        resp = requests.post('http://127.0.0.1:5000/teams', data=dict(request.POST))
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/teams/')
+        return HttpResponseRedirect('/error/')
 
 
 def create_stadion(request):
@@ -96,8 +99,10 @@ def create_stadion(request):
         return render(request, 'form.html', {'form': forms.StadionForm()})
     else:
         form = forms.CityForm(request.POST)
-        requests.post('http://127.0.0.1:5000/stadions', data=dict(request.POST))
-        return HttpResponseRedirect('/stadions/')
+        resp = requests.post('http://127.0.0.1:5000/stadions', data=dict(request.POST))
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/stadions/')
+        return HttpResponseRedirect('/error/')
 
 
 def create_match(request):
@@ -105,8 +110,10 @@ def create_match(request):
         return render(request, 'form.html', {'form': forms.MatchForm()})
     else:
         form = forms.CityForm(request.POST)
-        requests.post('http://127.0.0.1:5000/matches', data=dict(request.POST))
-        return HttpResponseRedirect('/matches/')
+        resp = requests.post('http://127.0.0.1:5000/matches', data=dict(request.POST))
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/matches/')
+        return HttpResponseRedirect('/error/')
 
 
 def create_league(request):
@@ -115,7 +122,9 @@ def create_league(request):
     else:
         form = forms.CityForm(request.POST)
         requests.post('http://127.0.0.1:5000/championships', data=dict(request.POST))
-        return HttpResponseRedirect('/leagues/')
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/leagues/')
+        return HttpResponseRedirect('/error/')
 
 
 def create_player(request):
@@ -124,4 +133,10 @@ def create_player(request):
     else:
         form = forms.CityForm(request.POST)
         requests.post('http://127.0.0.1:5000/players', data=dict(request.POST))
-        return HttpResponseRedirect('/players/')
+        if not resp.json().get("error"):
+            return HttpResponseRedirect('/players/')
+        return HttpResponseRedirect('/error/')
+
+
+def error(request):
+    return render(request, 'error.html', {})
