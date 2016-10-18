@@ -22,7 +22,7 @@
 		<td>{{elem.position}}</td>
 		<td>{{elem.birth_day}}</td>
 		<td>{{elem.salary}}</td>
-		{% if user.username == 'admin' %}<td> </td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
 	</tr><!-- Table Row -->
 	{% endfor %}
 </table>

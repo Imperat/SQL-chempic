@@ -7,6 +7,7 @@ import json
 
 app = Flask(__name__)
 
+
 @app.route('/cityes', methods=['GET', 'POST'])
 def cityes(conn=db_api.get_connection()):
     if request.method == 'GET':
@@ -17,6 +18,12 @@ def cityes(conn=db_api.get_connection()):
             return json.dumps({"sucess": "yes"})
         except Exception as e:
             return json.dumps({"error": e.message})
+
+
+@app.route('/cityes/<int:id>')
+def city(id, conn=db_api.get_connection()):
+    return json.dumps({"city": db_api._get_city(id, conn)})
+
 
 @app.route('/players', methods=['GET', 'POST'])
 def players(conn=db_api.get_connection()):
@@ -29,6 +36,12 @@ def players(conn=db_api.get_connection()):
         except Exception as e:
             return json.dumps({"error": e.message})
 
+
+@app.route('/players/<int:id>')
+def player(id, conn=db_api.get_connection()):
+    return json.dumps({"player": db_api._get_player(id, conn)})
+
+
 @app.route('/teams', methods=['GET', 'POST'])
 def teams(conn=db_api.get_connection()):
     if request.method == 'GET':
@@ -39,6 +52,17 @@ def teams(conn=db_api.get_connection()):
             return json.dumps({"sucess": "yes"})
         except Exception as e:
             return json.dumps({"error": e.message})
+
+
+@app.route('/positions/<int:id>')
+def positions(id, conn=db_api.get_connection()):
+    return json.dumps({"position": db_api._get_position(id, conn=conn)})
+
+
+@app.route('/teams/<int:id>')
+def team(id, conn=db_api.get_connection()):
+    return json.dumps({"team": db_api._get_team(id, conn)})
+
 
 @app.route('/matches', methods=['GET', 'POST'])
 def matches(conn=db_api.get_connection()):
@@ -51,6 +75,12 @@ def matches(conn=db_api.get_connection()):
         except Exception as e:
             return json.dumps({"error": e.message})
 
+
+@app.route('/matches/<int:id>')
+def match(id, conn=db_api.get_connection()):
+    return json.dumps({"match": db_api._get_match(id, conn)})
+
+
 @app.route('/championships', methods=['GET', 'POST'])
 def chempionships(conn=db_api.get_connection()):
     if request.method == 'GET':
@@ -62,6 +92,12 @@ def chempionships(conn=db_api.get_connection()):
         except Exception as e:
             return json.dumps({"error": e.message})
 
+
+@app.route('/championships/<int:id>')
+def championship(id, conn=db_api.get_connection()):
+    return json.dumps({"shampionship": db_api._get_championship(id, conn)})
+
+
 @app.route('/stadions', methods=['GET', 'POST'])
 def stadions(conn=db_api.get_connection()):
     if request.method == 'GET':
@@ -72,6 +108,11 @@ def stadions(conn=db_api.get_connection()):
             return json.dumps({"sucess": "yes"})
         except Exception as e:
             return json.dumps({"error": e.message})
+
+
+@app.route('/stadions/<int:id>')
+def stadion(id, conn=db_api.get_connection()):
+    return json.dumps({"stadion": db_api._get_stadion(id, conn)})
 
 
 if __name__ == '__main__':

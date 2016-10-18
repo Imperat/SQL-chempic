@@ -24,7 +24,7 @@
 		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.away}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.stadion}}</td>
 		<td>{{elem.date}}</td>
-		{% if user.username == 'admin' %}<td> </td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
 	</tr><!-- Table Row -->
 
 	{% endfor %}

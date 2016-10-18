@@ -8,6 +8,7 @@ import requests
 from django.contrib.auth import authenticate, login, logout
 import forms
 
+
 def main(request):
     return render(request, 'index.html', {})
 
@@ -36,6 +37,7 @@ def teams(request):
     }
     return render(request, 'teams.html', context)
 
+
 def stadions(request):
     elements = requests.get('http://127.0.0.1:5000/stadions')
     context = {
@@ -50,6 +52,7 @@ def leagues(request):
         "elements": elements.json(),
     }
     return render(request, 'leagues.html', context)
+
 
 def matches(request):
     elements = requests.get('http://127.0.0.1:5000/matches')
@@ -71,6 +74,7 @@ def create_city(request):
         if not resp.json().get("error"):
             return HttpResponseRedirect('/cityes/')
         return HttpResponseRedirect('/error/')
+
 
 def create_team(request):
     if request.method == 'GET':
@@ -110,7 +114,7 @@ def create_league(request):
         return render(request, 'form.html', {'form': forms.LeagueForm()})
     else:
         form = forms.CityForm(request.POST)
-        requests.post('http://127.0.0.1:5000/championships', data=dict(request.POST))
+        resp = requests.post('http://127.0.0.1:5000/championships', data=dict(request.POST))
         if not resp.json().get("error"):
             return HttpResponseRedirect('/leagues/')
         return HttpResponseRedirect('/error/')
@@ -121,7 +125,7 @@ def create_player(request):
         return render(request, 'form.html', {'form': forms.PlayerForm()})
     else:
         form = forms.CityForm(request.POST)
-        requests.post('http://127.0.0.1:5000/players', data=dict(request.POST))
+        resp = requests.post('http://127.0.0.1:5000/players', data=dict(request.POST))
         if not resp.json().get("error"):
             return HttpResponseRedirect('/players/')
         return HttpResponseRedirect('/error/')
@@ -145,7 +149,31 @@ def login_view(request):
             return render(request, 'form.html', {'form': forms.LoginForm()})
 
 
-
 def logout_view(request):
     logout(request)
     return render(request, 'form.html', {'form': forms.LoginForm()})
+
+
+# Update views
+def edit_city(request, id):
+    pass
+
+
+def edit_team(request, id):
+    pass
+
+
+def edit_league(request, id):
+    pass
+
+
+def edit_stadion(request, id):
+    pass
+
+
+def edit_player(request, id):
+    pass
+
+
+def edit_match(request, id):
+    pass

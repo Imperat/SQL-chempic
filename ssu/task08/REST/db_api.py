@@ -1,19 +1,21 @@
 import pymssql
 
-from db_api_utils import _get_city, _get_position, _get_team, _get_league, _get_stadion
+from db_api_utils import _get_city, _get_position, _get_team, _get_league, _get_stadion, _get_player, _get_match, _get_championship, _get_position
 from db_api_utils import get_id_by_name
+
 
 def get_connection():
     """
     get connecion for my specific DataBase
     """
     conn = pymssql.connect(server="127.0.0.1",
-                           user="Marmon",
-                           password="Marmon",
-                           database="Identity",
+                           user="marmon",
+                           password="marmon",
+                           database="FinalIteration",
                            tds_version="7.0",
-                           port="2079")
+                           port="1433")
     return conn
+
 
 def get_cityes(conn):
     cursor = conn.cursor()
@@ -107,7 +109,6 @@ def create_player(conn, request):
     birth_day = request.form['birth_day']
     salary = request.form['salary']
     data = (first_name, last_name, birth_day, position_id, salary)
-    import pdb; pdb.set_trace()
     cursor.execute("INSERT INTO Players VALUES ('%s', '%s', '%s', %s, %s)" % data)
     conn.commit()
 
@@ -121,7 +122,6 @@ def create_team(conn, request):
 
 
 def create_match(conn, request):
-    import pdb; pdb.set_trace()
     home_id = get_id_by_name(request.form['home_team'], obj='team', conn=conn)
     away_id = get_id_by_name(request.form['away_team'], obj='team', conn=conn)
     home_goals = request.form['home_goals']
@@ -137,7 +137,6 @@ def create_match(conn, request):
 
 
 def create_league(conn, request):
-    import pdb; pdb.set_trace()
     name = request.form['name']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
@@ -145,7 +144,6 @@ def create_league(conn, request):
     data = (name, start_date, end_date)
     cursor.execute("INSERT INTO League VALUES('%s', '%s', '%s')" % data)
     conn.commit()
-
 
 
 def create_stadion(conn, request):

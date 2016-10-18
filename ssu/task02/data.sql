@@ -5,11 +5,11 @@
 
 
 	insert into League values 
-		('Russian Chempic', '22.04.2006', '22.04.2007');
+		('Russian Chempic', '2006-04-22', '2007-04-22');
 	insert into League values 
-		('Russian Chempic', '25.04.2007', '26.04.2008');
+		('Russian Chempic', '2007-04-23', '2008-04-23');
 	insert into League values 
-		('Kefal', '01.05.2010', '01.05.2011')
+		('Kefal', '2010-05-01', '2011-05-02');
 
 	insert into Cityes values ('Rostov');
 	insert into Cityes values ('Moscow');
@@ -151,7 +151,6 @@
 	insert into Players values ('Chumachenko', 'Mikhail', '1999-12-3', 3, 65);
 
 
-	insert into [Players in Teams] values (0,3,'1983-5-11', '1987-11-19');
 	insert into [Players in Teams] values (1,22,'1970-12-18', '1971-6-25');
 	insert into [Players in Teams] values (2,6,'1983-2-16', '1991-4-27');
 	insert into [Players in Teams] values (3,8,'1989-9-12', '1993-1-4');

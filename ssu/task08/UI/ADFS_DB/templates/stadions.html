@@ -17,7 +17,7 @@
 		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.name}}</td>
 		<td>{{elem.city}}</td>
-		{% if user.username == 'admin' %}<td> </td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
 	</tr><!-- Table Row -->
 	{% endfor %}
 </table>
