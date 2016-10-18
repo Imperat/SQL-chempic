@@ -24,19 +24,25 @@ alter database [FootballMatches_DW] add filegroup [Fast-Growing]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Fast-Growing',
 filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Fast-Growing.ndf',
-size = 358400KB, filegrowth = 51200KB ) to filegroup [Fast-Growing] 
+size = 358400KB, filegrowth = 51200KB ) to filegroup [Fast-Growing]
+
+
 go
 alter database [FootballMatches_DW] add filegroup [Freq-Requested]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Freq-Requested',
 filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Freq-Requested.ndf',
-size = 204800KB, filegrowth = 10240KB ) to filegroup [Freq-Requested] 
+size = 204800KB, filegrowth = 10240KB ) to filegroup [Freq-Requested]
+
+
 go
 alter database [FootballMatches_DW] add filegroup [Indexes]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Indexes',
 filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Indexes.ndf',
 size = 30720KB, filegrowth = 5120KB ) to filegroup [Indexes] 
+
+
 go
 alter database [FootballMatches_DW] add filegroup [MyDefault]
 go 
@@ -288,13 +294,13 @@ WHILE @inc<=@end
 
 --индексы
 create nonclustered index plAltKey
-on dimPlayers([PlayerAlternateKey]);
+on dimPlayers([PlayerAlternateKey]) with (DROP_EXISTING = ON) on Indexes;
 
 create nonclustered index forDate
-on dimDate([KeyDate]);
+on dimDate([KeyDate]) with (DROP_EXISTING = ON) on Indexes;
 
 create nonclustered index forStad
-on dimStadions([NameStadion]);
+on dimStadions([NameStadion]) with (DROP_EXISTING = ON) on Indexes;
 
 create nonclustered index forBudg
-on dimTeams([budget]);
+on dimTeams([budget]) with (DROP_EXISTING = ON) on Indexes;
