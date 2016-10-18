@@ -4,10 +4,10 @@ use [master];
 create database [FootballMatches_DW]
 containment = none
 on primary
-( name = N'FootballMatches_DW', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW.mdf',
+( name = N'FootballMatches_DW', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW.mdf',
   size = 51200KB, maxsize = unlimited, filegrowth = 10240KB )
   log on
-( name = N'FootballMatches_DW_log', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW_log.ldf',
+( name = N'FootballMatches_DW_log', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW_log.ldf',
   size = 10240KB, maxsize = 2048GB, filegrowth = 10% )
 
 go
@@ -23,25 +23,25 @@ go
 alter database [FootballMatches_DW] add filegroup [Fast-Growing]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Fast-Growing',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Fast-Growing.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Fast-Growing.ndf',
 size = 358400KB, filegrowth = 51200KB ) to filegroup [Fast-Growing] 
 go
 alter database [FootballMatches_DW] add filegroup [Freq-Requested]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Freq-Requested',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Freq-Requested.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Freq-Requested.ndf',
 size = 204800KB, filegrowth = 10240KB ) to filegroup [Freq-Requested] 
 go
 alter database [FootballMatches_DW] add filegroup [Indexes]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Indexes',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Indexes.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Indexes.ndf',
 size = 30720KB, filegrowth = 5120KB ) to filegroup [Indexes] 
 go
 alter database [FootballMatches_DW] add filegroup [MyDefault]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_MyDefault',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_MyDefault.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_MyDefault.ndf',
 size = 204800KB, filegrowth = 10240KB ) to filegroup [MyDefault] 
 
 --таблицы измерений
@@ -182,11 +182,11 @@ create table FactGoalsMatches
 
 
 --тут можно запросить таблицы секционирования
-SELECT partition_number, rows FROM sys.partitions
+/*SELECT partition_number, rows FROM sys.partitions
  WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'FactGoalsMatches');
 
  SELECT partition_number, rows FROM sys.partitions
- WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'ArchivalFactGoalsMatches');
+ WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'ArchivalFactGoalsMatches');*/
 
  --метод скользящего окна
  GO
@@ -284,7 +284,7 @@ WHILE @inc<=@end
 	SET @inc = dateadd(day,1,@inc)
     END
 
-select * from dimDate;
+/*select * from dimDate;*/
 
 --индексы
 create nonclustered index plAltKey
