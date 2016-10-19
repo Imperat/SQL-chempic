@@ -19,6 +19,7 @@
 		<td>{{elem.start_date}}</td>
 		<td>{{elem.end_date}}</td>
 		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/delete">Удалить</a></td> {%endif%}
 		{% endfor %}
 	</tr><!-- Table Row -->
 

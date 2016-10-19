@@ -18,13 +18,14 @@
  
 	<tr>
 		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
-		<td>{{elem.league}}</td>
-		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.home}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
+		<td>{{elem.league.name}}</td>
+		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.home.name}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
 		<td>{{elem.home_goals}}:{{elem.away_goals}}</td>
-		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.away}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
-		<td>{{elem.stadion}}</td>
+		<td>{% if elem.home_goals > elem.away_goals %}<b>{% endif %}{{elem.away.name}}{% if elem.home_goals > elem.away_goals %}</b>{% endif %}</td>
+		<td>{{elem.stadion.name}}</td>
 		<td>{{elem.date}}</td>
 		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/delete">Удалить</a></td> {%endif%}
 	</tr><!-- Table Row -->
 
 	{% endfor %}

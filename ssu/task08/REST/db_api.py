@@ -152,3 +152,153 @@ def create_stadion(conn, request):
     name = request.form['name']
     cursor.execute("INSERT INTO Stadions VALUES('%s', %s)" % (name, city_id))
     conn.commit()
+
+
+def update_city(conn, request, id=0):
+    cursor = conn.cursor()
+    data = (
+        request.form['name'],
+        id
+    )
+    cursor.execute("update cityes set name='%s' where id=%s" % data)
+    conn.commit()
+
+def update_team(conn, request, id=0):
+    cursor = conn.cursor()
+    city_name = request.form['city']
+    birth_day = request.form['birth_day']
+    name = request.form['name']
+    budget = request.form['budget']
+    city_id = get_id_by_name(city_name, obj='city', conn=conn)
+    data = (
+        name,
+        city_id,
+        birth_day,
+        budget,
+        id
+    )
+    str = "update teams set name='%s', city=%s, making='%s', budget=%s where id=%s"
+    cursor.execute(str % data)
+    conn.commit()
+
+
+def update_stadion(conn, request, id=0):
+    cursor = conn.cursor()
+    city_name = request.form['city']
+    name = request.form['name']
+    city_id = get_id_by_name(city_name, obj='city', conn=conn)
+    data = (
+        name,
+        city_id,
+        id
+    )
+    str = "update stadions set name='%s', city=%s where id=%s"
+    cursor.execute(str % data)
+    conn.commit()
+
+
+def update_match(conn, request, id=0):
+    cursor = conn.cursor()
+    league = request.form['league']
+    home_goals = request.form['home_goals']
+    away_goals = request.form['away_goals']
+    away_team = request.form['away_team']
+    home_team = request.form['home_team']
+    stadion_name = request.form['stadion']
+    date = request.form['date']
+    stadion_id = get_id_by_name(stadion_name, obj='stadion', conn=conn)
+    home_id = get_id_by_name(home_team, obj='team', conn=conn)
+    away_id = get_id_by_name(away_team, obj='team', conn=conn)
+    league_id = get_id_by_name(league, obj='league', conn=conn)
+    data = (
+        home_id,
+        away_id,
+        home_goals,
+        away_goals,
+        league_id,
+        stadion_id,
+        date,
+        id
+    )
+    str = "update matches set home=%s, away=%s, home_goals=%s, away_goals=%s, league_id=%s, stadion=%s, date='%s' where id=%s"
+    cursor.execute(str % data)
+    conn.commit()
+
+
+def update_league(conn, request, id=0):
+    cursor = conn.cursor()
+    name = request.form['name']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    data = (
+        name,
+        start_date,
+        end_date,
+        id
+    )
+    str = "update league set name='%s', start_date='%s', end_date='%s' where id=%s"
+    cursor.execute(str % data)
+    conn.commit()
+
+
+def update_player(conn, request, id=0):
+    cursor = conn.cursor()
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    birth_day = request.form['birth_day']
+    position_name = request.form['position']
+    positin = get_id_by_name(position_name, 'position', conn=conn)
+    salary = request.form['salary']
+    data = (
+        first_name,
+        last_name,
+        birth_day,
+        positin,
+        salary,
+        id
+    )
+    str = "update Players set First_Name='%s', Last_Name='%s', Birth_Day='%s', Position=%s, salary=%s where id=%s"
+    cursor.execute(str % data)
+    conn.commit()
+
+
+def delete_city(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from Cityes where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+
+def delete_stadion(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from Stadions where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+
+
+def delete_team(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from Teams where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+
+
+def delete_player(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from Players where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+
+
+def delete_league(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from League where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+
+
+def delete_match(conn, request, id):
+    cursor = conn.cursor()
+    str = "delete from Matches where id=%s" % id
+    cursor.execute(str)
+    conn.commit()
+

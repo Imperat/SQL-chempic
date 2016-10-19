@@ -43,5 +43,11 @@ urlpatterns = [
     url(r'^stadions/(?P<id>[0-9]+)/edit$', views.edit_stadion),
     url(r'^players/(?P<id>[0-9]+)/edit$', views.edit_player),
     url(r'^matches/(?P<id>[0-9]+)/edit$', views.edit_match),
-
+    # for deletable forms
+    url(r'^cityes/(?P<id>[0-9]+)/delete$', views.delete_city),
+    url(r'^teams/(?P<id>[0-9]+)/delete$', views.delete_team),
+    url(r'^championships/(?P<id>[0-9]+)/delete$', views.delete_league),
+    url(r'^stadions/(?P<id>[0-9]+)/delete$', views.delete_stadion),
+    url(r'^players/(?P<id>[0-9]+)/delete$', views.delete_player),
+    url(r'^matches/(?P<id>[0-9]+)/delete$', views.delete_match),
 ]
