@@ -4,10 +4,10 @@ use [master];
 create database [FootballMatches_DW]
 containment = none
 on primary
-( name = N'FootballMatches_DW', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW.mdf',
+( name = N'FootballMatches_DW', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW.mdf',
   size = 51200KB, maxsize = unlimited, filegrowth = 10240KB )
   log on
-( name = N'FootballMatches_DW_log', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW_log.ldf',
+( name = N'FootballMatches_DW_log', filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FootballMatches_DW_log.ldf',
   size = 10240KB, maxsize = 2048GB, filegrowth = 10% )
 
 go
@@ -23,7 +23,7 @@ go
 alter database [FootballMatches_DW] add filegroup [Fast-Growing]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Fast-Growing',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Fast-Growing.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Fast-Growing.ndf',
 size = 358400KB, filegrowth = 51200KB ) to filegroup [Fast-Growing]
 
 
@@ -31,7 +31,7 @@ go
 alter database [FootballMatches_DW] add filegroup [Freq-Requested]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Freq-Requested',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Freq-Requested.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Freq-Requested.ndf',
 size = 204800KB, filegrowth = 10240KB ) to filegroup [Freq-Requested]
 
 
@@ -39,7 +39,7 @@ go
 alter database [FootballMatches_DW] add filegroup [Indexes]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_Indexes',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_Indexes.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_Indexes.ndf',
 size = 30720KB, filegrowth = 5120KB ) to filegroup [Indexes] 
 
 
@@ -47,7 +47,7 @@ go
 alter database [FootballMatches_DW] add filegroup [MyDefault]
 go 
 alter database [FootballMatches_DW] add file ( name = N'FM_MyDefault',
-filename = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\FM_MyDefault.ndf',
+filename = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\FM_MyDefault.ndf',
 size = 204800KB, filegrowth = 10240KB ) to filegroup [MyDefault] 
 
 --таблицы измерений
@@ -132,7 +132,7 @@ create table dimPosition
 -- ) on [Freq-Requested]
 
  --секционирование
- CREATE PARTITION FUNCTION PartFunFactGoals_Date(BIGINT)
+/* CREATE PARTITION FUNCTION PartFunFactGoals_Date(BIGINT)
 AS RANGE RIGHT FOR VALUES (20150601,20160301,20161001);
 
 CREATE PARTITION SCHEME PartSchFactGoals_Date 
@@ -150,7 +150,7 @@ CREATE PARTITION SCHEME PartSchArchievalFactGoals_Date
 AS PARTITION PartFunArchievalFactGoals_Date TO
 ([Fast-Growing],
  [Fast-Growing]);
-
+*/
 GO
 
 --таблица фактов
@@ -165,12 +165,10 @@ create table FactGoalsMatches
  DateKey bigint not null,
  isPenalty bit,
  timeGoal time not null,
- constraint pkdw8 primary key(KeyMatch, KeyGoalInMatch, DateKey)
- WITH (ALLOW_ROW_LOCKS = OFF, ALLOW_PAGE_LOCKS = OFF))
- ON PartSchFactGoals_Date(DateKey); 
+ constraint pkdw8 primary key(KeyMatch, KeyGoalInMatch, DateKey);
 
  
- --таблица для метода скользящего окна
+ /*--таблица для метода скользящего окна
  create table ArchivalFactGoalsMatches
 (KeyMatch int not null,
  KeyGoalInMatch int not null,
@@ -184,7 +182,7 @@ create table FactGoalsMatches
  timeGoal time not null,
  constraint pkdw9 primary key(KeyMatch, KeyGoalInMatch, DateKey)
  WITH (ALLOW_ROW_LOCKS = OFF, ALLOW_PAGE_LOCKS = OFF))
- ON PartSchArchievalFactGoals_Date(DateKey); 
+ ON PartSchArchievalFactGoals_Date(DateKey);*/ 
 
 
 --тут можно запросить таблицы секционирования
@@ -195,7 +193,7 @@ create table FactGoalsMatches
  WHERE OBJECT_ID = (SELECT OBJECT_ID FROM sys.tables WHERE name = 'ArchivalFactGoalsMatches');*/
 
  --метод скользящего окна
- GO
+ /*GO
 
  CREATE PROCEDURE Pr_SlidingWindow
  AS
@@ -240,7 +238,7 @@ Merge RANGE (CAST(@DayForPartArchival AS BIGINT));
 
 ALTER PARTITION FUNCTION  PartFunArchievalFactGoals_Date()
 merge RANGE (CAST(@DayForPartArchival AS BIGINT));
-
+*/
 --добавление внешних ключей
 alter table dimLeagues
 add constraint fk1 foreign key(StartDate) references dimDate(KeyDate),
@@ -270,8 +268,8 @@ constraint fk14 foreign key(DateKey) references dimDate(KeyDate);
 --заполнение таблицы дат
 SET LANGUAGE Russian;
 
-DECLARE @start date = '2015-05-01';
-DECLARE @end date = '2016-10-02';
+DECLARE @start date = '1970-01-01';
+DECLARE @end date = '2020-01-01';
 DECLARE @inc date;
 SET @inc = @start;
 
