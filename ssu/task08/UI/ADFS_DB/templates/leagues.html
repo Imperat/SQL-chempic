@@ -1,23 +1,27 @@
 {% extends "index.html" %}
 
 {% block content %}
+<a href="/championships/add"> <b>+ Добавить чемпионат </b></a>
 <table class="simple-little-table" cellspacing='0'>
 	<tr>
-		<th>ID </th>
+		{% if user.username == 'admin' %}<th>ID </th>{%endif%}
 		<th>Название</th>
 		<th>Дата начала</th>
 		<th>Дата окончания</th>
+		{% if user.username == 'admin' %}<th> </th> {%endif%}
 	</tr><!-- Table Header -->
 	{% for elem in elements.chempionships %}
 		
  
 	<tr>
-		<td>{{elem.id}}</td>
+		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.name}}</td>
 		<td>{{elem.start_date}}</td>
 		<td>{{elem.end_date}}</td>
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/delete">Удалить</a></td> {%endif%}
+		{% endfor %}
 	</tr><!-- Table Row -->
 
 </table>
-	{% endfor %}
 {% endblock %}

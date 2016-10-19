@@ -1,17 +1,23 @@
 {% extends "index.html" %}
 
 {% block content %}
+
+<a href="/cityes/add"> <b>+ Добавить город </b></a>
+
 <table class="simple-little-table" cellspacing='0'>
 	<tr>
-		<th>ID </th>
+		{% if user.username == 'admin' %}<th>ID </th> {% endif %}
 		<th>Город</th>
+		{% if user.username == 'admin' %}<th> </th> {%endif%}
 	</tr><!-- Table Header -->
 	{% for elem in elements.cityes %}
 		
  
 	<tr>
-		<td>{{elem.id}}</td>
+		{% if user.username == 'admin' %}<td>{{elem.id}}</td>{%endif%}
 		<td>{{elem.name}}</td>
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/edit">Изменить</a></td> {%endif%}
+		{% if user.username == 'admin' %}<td> <a href="{{elem.id}}/delete">Удалить</a></td> {%endif%}
 	</tr><!-- Table Row -->
 
 	{% endfor %}

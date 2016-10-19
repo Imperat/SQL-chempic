@@ -9,4 +9,13 @@
   <li class="menu_item"><a class="menu_link" href="/championships">Чемпионаты</a></li>
   <li class="menu_item"><a class="menu_link" href="/players">Игроки</a></li>
   </ul>
+
+ <br>
+ {%if user.username == 'admin' %}
+<b> <a href="/logout"> Выход </a> </b>
+<br>
+User: {{user}}
+ {% else %}
+<b> <a href="/login"> Вход</a> </b>
+{% endif %}
   </div>
